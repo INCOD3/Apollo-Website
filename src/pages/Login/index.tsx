@@ -30,7 +30,7 @@ export function LoginPage() {
                                     }
                                 />
                             </FormControl>
-                            <FormControl className=''>
+                            <FormControl>
                                 <Input 
                                     className='mb-3'
                                     placeholder='Insira sua senha'
