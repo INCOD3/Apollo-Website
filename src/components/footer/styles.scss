@@ -1,0 +1,32 @@
+.apollo {
+    font-family: 'Black Ops One';
+}
+
+.footer {
+    h1, p {
+        max-width: 45%;
+        margin-left: 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        h1, p {
+            text-align: center;
+            max-width: 100%;
+            margin-left: 0;
+        }
+
+        max-width: 100%;
+    }
+
+    .contents {
+        gap: 2.5rem;
+        flex-direction: column;
+        align-items: center;
+        
+        h1, p {
+            text-align: center;
+        }
+    }
+}
