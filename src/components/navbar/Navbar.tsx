@@ -18,10 +18,10 @@ export function Navbar() {
                             <Link to="/" className="nav-link">Início</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/products" className="nav-link">Produtos</Link>
+                            <Link to="/" className="nav-link">Produtos</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/about" className="nav-link">Sobre</Link>
+                            <Link to="/" className="nav-link">Sobre</Link>
                         </li>
                     </ul>
                 </div>
