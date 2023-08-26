@@ -1,6 +1,7 @@
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { Navbar } from "../../components/navbar/Navbar";
+import { Footer } from "../../components/footer/Footer";
 import { Link } from "react-router-dom"
 
 import "./styles.scss"
@@ -95,6 +96,7 @@ alta qualidade e proteção contra qualquer tipo de ataque.</p>
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
