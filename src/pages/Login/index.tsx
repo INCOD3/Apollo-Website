@@ -43,8 +43,8 @@ export function LoginPage() {
                             </FormControl>
                             <button className='btn btn-primary py-2 mb-2'>Entrar</button>
                             <a 
-                            href="recovery" 
-                            className='text-center text-decoration-none text-body-secondary mb-4'>Esqueci minha senha</a>
+                            href="register" 
+                            className='text-center text-decoration-none text-body-secondary mb-4'>Ainda não tem uma conta?</a>
                         </div>
                     </div>
                 </div>
