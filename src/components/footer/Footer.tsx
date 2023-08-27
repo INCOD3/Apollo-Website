@@ -2,7 +2,7 @@ import "./styles.scss";
 
 export function Footer() {
     return(
-        <div className="container-fluid mt-5">
+        <footer className="container-fluid mt-5">
             <hr />
             <div className="d-flex contents">
                 <div className="d-flex flex-column gap-2 footer">
@@ -30,6 +30,6 @@ export function Footer() {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }
