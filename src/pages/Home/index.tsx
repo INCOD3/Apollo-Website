@@ -23,8 +23,8 @@ export function HomePage() {
             </div>
             <div className="text-center">
                 <h1 className="fw-bold text-primary">Confira os nossos principais plano <br/> totalmente ideal para o seu projeto</h1>
-                <p className="text-secondary">Promova hoje seu servidor com uma hospedagem com uma <br/>
-alta qualidade e proteção contra qualquer tipo de ataque.</p>
+                <p className="text-secondary">Promova hoje seu negócio com um sistema com uma <br/>
+alta qualidade e automação de dar inveja.</p>
             </div>
             <div className="container d-flex justify-content-around mt-5 products">
                 <div className="card border-0 p-5">
