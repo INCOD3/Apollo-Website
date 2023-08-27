@@ -8,7 +8,7 @@ import "./styles.scss"
 
 export function HomePage() {
     return (
-        <div className="background">
+        <div className="container-fluid">
             <Navbar/>
             <div className="container-fluid mt-5 py-5">
                 <div className="container card border-0 gradient py-5">
