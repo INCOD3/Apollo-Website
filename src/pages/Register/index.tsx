@@ -1,11 +1,46 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import KeyIcon from '@mui/icons-material/Key';
 import { Navbar } from "../../components/navbar/Navbar"
+import { registerAccount } from '../../api/RegisterRequest';
 
 import "./styles.scss"
 import { FormControl, Input, InputAdornment } from '@mui/material'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function RegisterPage() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const navigate = useNavigate();
+
+    function isValidEmail() {
+        if (email.trim() === '' || !/\S+@\S+\.\S+/.test(email)) return false;
+        else return true;
+    }
+
+    function isValidPassword() {
+        if (password.trim() === '' || password.length < 8) return false;
+        else return true;
+    }
+
+    function handleRegisterAccount() {
+        if (!isValidEmail()) {
+            setMessage("Este e-mail não é válido!");
+            return;
+        }
+        if (!isValidPassword()) {
+            setMessage("A senha precisa ter 8 dígitos!");
+            return;
+        }
+
+        registerAccount({email, password}).then(() => {
+            navigate("/login")
+        }).catch(() => {
+            setMessage("Ocorreu um erro, tente outro email.");
+        });
+    }
+
     return(
         <div>
             <Navbar/>
@@ -22,6 +57,8 @@ export function RegisterPage() {
                                 placeholder='Insira seu email'
                                 type='text'
                                 className='my-3'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 startAdornment={
                                     <InputAdornment position='start'>
                                         <AccountCircleIcon/>
@@ -34,6 +71,8 @@ export function RegisterPage() {
                                 placeholder='Insira sua senha'
                                 type='password'
                                 className='mb-3'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 startAdornment={
                                     <InputAdornment position='start'>
                                         <KeyIcon/>
@@ -41,7 +80,15 @@ export function RegisterPage() {
                                 }
                             />
                         </FormControl>
-                        <button className='btn btn-primary px-5 py-2 mb-2'>Cadastrar</button>
+                        <button 
+                        onClick={() => {
+                            console.log(isValidEmail())
+                            console.log(isValidPassword())
+
+                            handleRegisterAccount();
+                        }}
+                        className='btn btn-primary px-5 py-2 mb-2'>Cadastrar</button>
+                        <div className='text-center fs-6 text-danger'>{message}</div>
                         <a href="login" 
                         className='text-decoration-none text-body-secondary mb-4 text-center'>Já tenho uma conta</a>
                     </div>
