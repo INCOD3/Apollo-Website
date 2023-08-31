@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = "http://localhost:8080/login";
+const api = "http://192.168.1.106:8080/login";
 
 export interface LoginResponse {
     data: {
