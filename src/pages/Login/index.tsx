@@ -7,14 +7,22 @@ import { FormControl, Input, InputAdornment } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginResponse, loginAccount } from '../../api/LoginRequest';
-import { useSignIn } from 'react-auth-kit';
+import { useSignIn, useAuthUser } from 'react-auth-kit';
 
 export function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
+    const auth = useAuthUser() as any;
     const signIn = useSignIn();
+
+    if (auth) {
+        setInterval(() => {
+            navigate('/');
+        }, 500)
+        return;
+    }
 
     function isValidEmail() {
         if (email.trim() === '' || !/\S+@\S+\.\S+/.test(email)) return false;
