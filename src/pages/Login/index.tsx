@@ -4,8 +4,50 @@ import { Navbar } from "../../components/navbar/Navbar";
 
 import "./styles.scss"
 import { FormControl, Input, InputAdornment } from '@mui/material';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { LoginResponse, loginAccount } from '../../api/LoginRequest';
+import { useSignIn } from 'react-auth-kit';
 
 export function LoginPage() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const navigate = useNavigate();
+    const signIn = useSignIn();
+
+    function isValidEmail() {
+        if (email.trim() === '' || !/\S+@\S+\.\S+/.test(email)) return false;
+        else return true;
+    }
+
+    function isValidPassword() {
+        if (password.trim() === '') return false;
+        else return true;
+    }
+
+    function handleLoginAccount() {
+        if (!isValidEmail()) {
+            setMessage("Este e-mail não é válido!");
+            return;
+        }
+        if (!isValidPassword()) {
+            setMessage("A senha não pode estar vazia!");
+            return;
+        }
+
+        loginAccount({email, password}).then((response: LoginResponse) => {
+            signIn({ 
+                token: response.data.token,
+                tokenType: "Bearer",
+                expiresIn: 1440
+             });
+             navigate('/');
+        }).catch(() => {
+            setMessage("Email ou senha inválidos");
+        })
+    }
+
     return(
         <div>
             <Navbar/>
@@ -23,6 +65,8 @@ export function LoginPage() {
                                     className='my-3'
                                     placeholder='Insira seu email'
                                     type='text'
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     startAdornment={
                                         <InputAdornment position='start'>
                                             <AccountCircleIcon />
@@ -35,13 +79,20 @@ export function LoginPage() {
                                     className='mb-3'
                                     placeholder='Insira sua senha'
                                     type='password'
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     startAdornment={
                                     <InputAdornment position="start">
                                         <KeyIcon/>
                                     </InputAdornment>
                                 } />
                             </FormControl>
-                            <button className='btn btn-primary py-2 mb-2'>Entrar</button>
+                            <button 
+                            onClick={() => {
+                                handleLoginAccount();
+                            }}
+                            className='btn btn-primary py-2 mb-2'>Entrar</button>
+                            <div className='text-center fs-6 text-danger'>{message}</div>
                             <a 
                             href="register" 
                             className='text-center text-decoration-none text-body-secondary mb-4'>Ainda não tem uma conta?</a>
