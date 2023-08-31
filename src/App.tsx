@@ -4,7 +4,8 @@ import { LoginPage } from "./pages/Login"
 import { HomePage } from "./pages/Home"
 import { RegisterPage } from "./pages/Register"
 
-import { AuthProvider } from "react-auth-kit";
+import { AuthProvider, RequireAuth } from "react-auth-kit";
+import { DashboardPage } from "./pages/Dashboard";
 
 function App() {
   return (
@@ -14,6 +15,11 @@ function App() {
             <Route path="/" Component={HomePage} />
             <Route path="/login" Component={LoginPage} />
             <Route path="/register" Component={RegisterPage} />
+            <Route path="/dashboard" element={
+              <RequireAuth loginPath="/login">
+                <DashboardPage />
+              </RequireAuth>
+            } />
           </Routes>
         </BrowserRouter>
     </AuthProvider>
