@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom"
+import { useAuthUser, useSignOut } from 'react-auth-kit';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import "./styles.scss"
 
 export function Navbar() {
+    const auth = useAuthUser()
+    const signOut = useSignOut();
+    const user = auth() as any;
+
     return(
         <nav className="container-fluid navbar navbar-expand-lg border border-1">
             <div className="container">
@@ -26,11 +31,28 @@ export function Navbar() {
                     </ul>
                 </div>
                 <div className='d-flex align-items-center mx-auto gap-4'>
-                        <Link to="/login" className="btn btn-primary d-flex align-items-center gap-2">
-                            <AccountCircleIcon />
-                            Minha conta
-                        </Link>
-                        <Link to="/register" className="btn btn-outline-light fs-6 text-body-secondary">Registre-se</Link>
+                        {   
+                            user ? 
+                            <div className="dropdown">
+                                <button className="btn btn-outline-dark dropdown-toggle" 
+                                type="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">{user.email}</button>
+                                <ul className="dropdown-menu">
+                                    <li><a href="#" className="dropdown-item pe-5">Painel de controle</a></li>
+                                    <li><a href="#" className="dropdown-item pe-5">Meu perfil</a></li>
+                                    <li><hr className="dropdown-divider"/></li>
+                                    <li><button onClick={() => {
+                                        signOut();
+                                    }} className="dropdown-item pe-5">Sair</button></li>
+                                </ul>
+                            </div>
+                            :
+                            <><Link to="/login" className="btn btn-primary d-flex align-items-center gap-2">
+                                <AccountCircleIcon />
+                                Minha conta
+                            </Link><Link to="/register" className="btn btn-outline-light fs-6 text-body-secondary">Registre-se</Link></>
+                        }
                 </div>
             </div>
         </nav>
