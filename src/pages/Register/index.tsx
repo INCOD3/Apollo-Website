@@ -7,12 +7,21 @@ import "./styles.scss"
 import { FormControl, Input, InputAdornment } from '@mui/material'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuthUser } from 'react-auth-kit';
 
 export function RegisterPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const auth = useAuthUser() as any;
     const navigate = useNavigate();
+
+    if (auth) {
+        setInterval(() => {
+            navigate('/');
+        }, 500)
+        return;
+    }
 
     function isValidEmail() {
         if (email.trim() === '' || !/\S+@\S+\.\S+/.test(email)) return false;
