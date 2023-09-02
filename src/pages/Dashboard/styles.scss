@@ -1,0 +1,31 @@
+.data {
+    width: 18rem;
+    height: 9rem;
+}
+
+@media (max-width: 992px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        aside {
+            width: 80%;
+            img {
+                width: 5rem!important;
+            }
+        }
+
+        .data-cards {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .service-container {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
