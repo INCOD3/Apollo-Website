@@ -12,7 +12,7 @@ export function Coupon(props: CouponProps) {
         <div className="card border-success p-2 d-flex">
             <div className="d-flex flex-column">
                 <div className="d-flex flex-row w-100 justify-content-between">
-                    <h1 className="fs-5 fw-bold text-success my-0">{props.name}</h1>
+                    <h1 className="fs-5 fw-bold text-success my-0">{props.name.toUpperCase()}</h1>
                     <div className="d-flex flex-column align-items-end">
                         <div>
                             <button className="btn btn-outline-danger py-1">x</button>
