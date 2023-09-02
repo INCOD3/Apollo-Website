@@ -91,9 +91,6 @@ export function RegisterPage() {
                         </FormControl>
                         <button 
                         onClick={() => {
-                            console.log(isValidEmail())
-                            console.log(isValidPassword())
-
                             handleRegisterAccount();
                         }}
                         className='btn btn-primary px-5 py-2 mb-2'>Cadastrar</button>
