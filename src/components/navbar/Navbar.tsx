@@ -39,8 +39,8 @@ export function Navbar() {
                                 data-bs-toggle="dropdown" 
                                 aria-expanded="false">{user.email}</button>
                                 <ul className="dropdown-menu">
-                                    <li><a href="#" className="dropdown-item pe-5">Painel de controle</a></li>
-                                    <li><a href="#" className="dropdown-item pe-5">Meu perfil</a></li>
+                                    <li><Link to="dashboard" className="dropdown-item pe-5">Painel de controle</Link></li>
+                                    <li><Link to="#" className="dropdown-item pe-5">Meu perfil</Link></li>
                                     <li><hr className="dropdown-divider"/></li>
                                     <li><button onClick={() => {
                                         signOut();
