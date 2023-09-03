@@ -87,7 +87,7 @@ export function DashboardPage() {
                                 <div className="container d-flex flex-column align-items-center">
                                     <div className="container card bg-transparent border-0 products-card p-3 mt-4 gap-4">
                                         {
-                                            service?.products ? (
+                                            service?.products && service?.products.length > 0 ? (
                                                 service.products.map((product, index) => (
                                                     <Product 
                                                     key={index} 
@@ -198,7 +198,7 @@ export function DashboardPage() {
                                 <div className="container d-flex flex-column align-items-center">
                                     <div className="container card bg-transparent border-0 products-card p-3 mt-4 gap-4">
                                         {
-                                            service?.coupons ?
+                                            service?.coupons && service.coupons.length > 0 ?
                                             service.coupons.map((coupon, index) => (
                                                 <Coupon 
                                                 key={index} 
