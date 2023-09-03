@@ -23,6 +23,8 @@ export function DashboardPage() {
     const [service, setService] = useState<ServiceProps>();
     const [product, setProduct] = useState<ProductProps>({ id: 0, name: "", price: 1, description: "" });
     const [coupon, setCoupon] = useState<CouponProps>({ id: 0, name: "", percentage: 0, description: "", expirateAt: "0" });
+    const [discordId, setDiscordId] = useState();
+    const [pix, setPix] = useState();
 
     useEffect(() => {
         getServiceFromToken(header().substring(7)).then(service => {
@@ -40,11 +42,12 @@ export function DashboardPage() {
             <div className="d-flex content">
                 <aside className="d-flex flex-column border border-bottom-0 border-top-0 align-items-center">
                     <img src={logo} alt="Logo da Apollo" className="w-50 mt-3 mx-5" />
-                    <p className="text-secondary mt-5 fw-semibold">ID: JFLAJD-WLDASDA-WJZDJAW</p>
+                    <p className="text-secondary text-center mt-5 fw-semibold">ID: {service?.id}</p>
                     <FormControl>
                         <Input 
                             className="mt-3"
                             placeholder="ID do seu Servidor"
+                            value={service?.discordId}
                             type="text"
                             startAdornment={
                                 <InputAdornment position="start">
@@ -58,6 +61,7 @@ export function DashboardPage() {
                             className="mt-5 text-center"
                             placeholder="Insira sua chave PIX"
                             type="text"
+                            value={service?.pix}
                             startAdornment={
                                 <InputAdornment position="start">
                                     <PixIcon className="icon"/>
