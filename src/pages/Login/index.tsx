@@ -40,7 +40,7 @@ export function LoginPage() {
             signIn({ 
                 token: response.data.token,
                 tokenType: "Bearer",
-                expiresIn: 1440,
+                expiresIn: 262800,
                 authState: { email: email }
              });
              navigate('/');
