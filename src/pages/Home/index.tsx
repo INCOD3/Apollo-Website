@@ -30,7 +30,7 @@ alta qualidade e automação de dar inveja.</p>
                 <div className="card border-0 p-5">
                     <p className="fw-bold fs-5 text-secondary">Iniciante</p>
                     <div className="d-flex flex-row align-items-center">
-                        <h1 className="text-primary fw-bold">R$0,00</h1>
+                        <h1 className="text-primary fw-bold">R$29,90</h1>
                         <h3 className="text-secondary">/mês</h3>
                     </div>
                     <p className="text-secondary">Utilize este plano para pequenos projetos</p>
@@ -45,10 +45,7 @@ alta qualidade e automação de dar inveja.</p>
                         <p className='text-secondary'>Notificação sobre descontos em DM</p>
                         </li>
                         <li className='d-flex gap-1'><RemoveCircleIcon className='uncheck-icon'/>
-                        <p className='text-secondary'>Criação de produtos ilimitados</p>
-                        </li>
-                        <li className='d-flex gap-1'><RemoveCircleIcon className='uncheck-icon'/>
-                        <p className='text-secondary'>Livre de anúncios sobre nossa loja</p>
+                        <p className='text-secondary'>Criação de até 25 produtos</p>
                         </li>
                         <li className='d-flex gap-1'><RemoveCircleIcon className='uncheck-icon'/>
                         <p className='text-secondary'>Resumo de vendas por semana/mês</p>
@@ -64,7 +61,7 @@ alta qualidade e automação de dar inveja.</p>
                 <div className="card border-0 p-5">
                     <p className="fw-bold fs-5 text-primary">Profissional</p>
                     <div className="d-flex flex-row align-items-center">
-                        <h1 className="text-primary fw-bold">R$29,90</h1>
+                        <h1 className="text-primary fw-bold">R$49,90</h1>
                         <h3 className="text-secondary">/mês</h3>
                     </div>
                     <p className="text-secondary">Utilize este plano para grandes projetos</p>
@@ -79,10 +76,7 @@ alta qualidade e automação de dar inveja.</p>
                         <p className='text-secondary'>Notificação sobre descontos em DM</p>
                         </li>
                         <li className='d-flex gap-1'><CheckCircleIcon className='check-icon'/>
-                        <p className='text-secondary'>Criação de produtos ilimitados</p>
-                        </li>
-                        <li className='d-flex gap-1'><CheckCircleIcon className='check-icon'/>
-                        <p className='text-secondary'>Livre de anúncios sobre nossa loja</p>
+                        <p className='text-secondary'>Criação de até 25 produtos</p>
                         </li>
                         <li className='d-flex gap-1'><CheckCircleIcon className='check-icon'/>
                         <p className='text-secondary'>Resumo de vendas por semana/mês</p>
