@@ -35,7 +35,6 @@ export function DashboardPage() {
                 return prevService = service;
             })
         }).catch(error => {
-            console.log(service)
             console.log(error)
         });
     }, [])
