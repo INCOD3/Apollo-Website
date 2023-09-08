@@ -92,3 +92,19 @@ export function deleteCoupon(token: string, couponId: number, onSuccess: () => v
         console.log(error)
     });
 }
+
+export async function editServiceDetails(token: string, discordId: string, pix: string): Promise<ServiceProps> {
+    const response = await axios.put(api + "botDetails",
+        {
+            discordId: discordId,
+            pix: pix
+        },
+        {
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        }
+    );
+    const service: ServiceProps = response.data;
+    return service;
+}
