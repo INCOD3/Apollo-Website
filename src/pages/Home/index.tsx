@@ -17,11 +17,17 @@ export function HomePage() {
                         <p className="text-white fs-5 fw-normal">Com o nosso sistema você pode vender seus produtos automáticamente pelo discord, sem precisar se preocupar com cobranças. Tudo de forma automática para que você só precise ver o dinheiro em sua conta sem mais preocupações.</p>
                     </div>
                     <div className="ms-1 ps-5">
-                        <Link to="products" className="btn btn-primary px-5 py-2 my-4">Adquirir já</Link>
+                        <Link 
+                        to="#products" 
+                        className="btn btn-primary px-5 py-2 my-4"
+                        onClick={() => {
+                            window.location.href = "#products";
+                        }}
+                        >Adquirir já</Link>
                     </div>
                 </div>
             </div>
-            <div className="text-center">
+            <div id='products' className="text-center">
                 <h1 className="fw-bold text-primary">Confira os nossos principais plano <br/> totalmente ideal para o seu projeto</h1>
                 <p className="text-secondary">Promova hoje seu negócio com um sistema com uma <br/>
 alta qualidade e automação de dar inveja.</p>

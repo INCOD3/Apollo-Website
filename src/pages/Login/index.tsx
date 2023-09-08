@@ -43,7 +43,7 @@ export function LoginPage() {
                 expiresIn: 262800,
                 authState: { email: email }
              });
-             navigate('/');
+             navigate('/dashboard');
         }).catch(() => {
             setMessage("Email ou senha inválidos");
         })

@@ -360,7 +360,15 @@ export function DashboardPage() {
                             <p className="text-primary text-center mt-3">Para você poder acessar a dashboard, você precisa ter
                             pelo menos um serviço ativo nesta conta. Para adquirir um serviço, basta clicar no botão abaixo.
                             </p>
-                            <Link to="/" className="btn btn-primary px-5 py-2 my-4">Adquirir já</Link>
+                            <Link 
+                            to="/" 
+                            className="btn btn-primary px-5 py-2 my-4"
+                            onClick={() => {
+                                setTimeout(() => {
+                                    window.location.href = "#products";
+                                }, 500);
+                            }}
+                            >Adquirir já</Link>
                         </div>
                     </div>
                 }

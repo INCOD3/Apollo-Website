@@ -23,7 +23,13 @@ export function Navbar() {
                             <Link to="/" className="nav-link">Início</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">Produtos</Link>
+                            <Link 
+                            to="/" 
+                            className="nav-link"
+                            onClick={() => {
+                                window.location.href = "#products";
+                            }}
+                            >Produtos</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/" className="nav-link">Sobre</Link>
