@@ -6,6 +6,7 @@ import { RegisterPage } from "./pages/Register"
 
 import { AuthProvider, RequireAuth } from "react-auth-kit";
 import { DashboardPage } from "./pages/Dashboard";
+import { BegginerPage, ProfessionalPage } from "./pages/Contract";
 
 function App() {
   return (
@@ -20,6 +21,16 @@ function App() {
                 <DashboardPage />
               </RequireAuth>
             } />
+            <Route path="/order/begginer" element={
+              <RequireAuth loginPath="/login">
+                <BegginerPage />
+              </RequireAuth>
+            }/>
+            <Route path="/order/professional" element={
+              <RequireAuth loginPath="/login">
+                <ProfessionalPage />
+              </RequireAuth>
+            }/>
           </Routes>
         </BrowserRouter>
     </AuthProvider>
