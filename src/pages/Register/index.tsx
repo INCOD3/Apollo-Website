@@ -7,6 +7,8 @@ import "./styles.scss"
 import { FormControl, Input, InputAdornment } from '@mui/material'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 export function RegisterPage() {
     const [email, setEmail] = useState('');
@@ -27,10 +29,12 @@ export function RegisterPage() {
     function handleRegisterAccount() {
         if (!isValidEmail()) {
             setMessage("Este e-mail não é válido!");
+            toast.error("Este e-mail não é válido!");
             return;
         }
         if (!isValidPassword()) {
             setMessage("A senha precisa ter 8 dígitos!");
+            toast.error("A senha precisa ter 8 dígitos!");
             return;
         }
 
@@ -38,6 +42,7 @@ export function RegisterPage() {
             navigate("/login")
         }).catch(() => {
             setMessage("Ocorreu um erro, tente outro email.");
+            toast.error("Ocorreu um erro, tente outro email.");
         });
     }
 
@@ -91,6 +96,12 @@ export function RegisterPage() {
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                autoClose={5000}
+                position={"bottom-right"}
+                theme="light"
+                draggable={false}
+            />
         </div>
     )
 }

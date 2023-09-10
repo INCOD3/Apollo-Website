@@ -18,6 +18,8 @@ import { Product } from "../../components/product/Product";
 import { Coupon } from "../../components/coupon/Coupon";
 import { NumericFormat } from "react-number-format";
 import { TextField } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 export function DashboardPage() {
     const header = useAuthHeader();
@@ -76,23 +78,12 @@ export function DashboardPage() {
                                     onClick={() => {
                                         editServiceDetails(header().substring(7), discordId, pix)
                                             .then(() => {
-                                                console.log("sçdlalçpsdjkmlas");
-
+                                                toast.success("Os dados do serviço foram atualizados!")
                                             }).catch(() => {
-                                                // mostrar toast de erro
+                                                toast.error("Não foi possível salvar seus dados!")
                                             });
                                     }}
                                 >Salvar</button>
-                                <div className="toast-container">
-                                    <div id="liveToast" className="toast text-bg-primary align-items-center border-0" role="alert" aria-atomic="true" aria-live="assertive">
-                                        <div className="d-flex">
-                                            <div className="toast-body">
-                                                Toast de testes
-                                            </div>
-                                            <button className="btn-close btn-close-white" data-bs-dismiss="toast"></button>
-                                        </div>
-                                    </div>
-                                </div>
                             </aside><div className="d-flex flex-column w-100">
                                     <div className="d-flex justify-content-around mt-5 w-100 data-cards">
                                         <div className="card border-0 shadow-lg align-items-center data align-items-center justify-content-center">
@@ -122,7 +113,10 @@ export function DashboardPage() {
                                                                     description={product.description}
                                                                     onDelete={() => {
                                                                         getServiceFromToken(header().substring(7))
-                                                                            .then(service => setService(service));
+                                                                            .then(service => {
+                                                                                setService(service);
+                                                                                toast.warn("Você acabou de deletar este produto!");   
+                                                                            });
                                                                     }} />
                                                             ))
                                                         ) : (
@@ -197,9 +191,12 @@ export function DashboardPage() {
                                                                                 createProduct(header().substring(7), product)
                                                                                     .then(() => {
                                                                                         getServiceFromToken(header().substring(7))
-                                                                                            .then(service => setService(service));
+                                                                                            .then(service => {
+                                                                                                setService(service);
+                                                                                                toast.success("Seu novo produto foi criado com êxito");
+                                                                                            });
                                                                                     }).catch(() => {
-                                                                                        // todo: chamar toast de falha
+                                                                                        toast.error("Não foi possível criar o seu produto!");
                                                                                     });
                                                                             }}
                                                                         >Criar produto</button>
@@ -228,7 +225,10 @@ export function DashboardPage() {
                                                                     expirateAt={coupon.expirateAt}
                                                                     onDelete={() => {
                                                                         getServiceFromToken(header().substring(7))
-                                                                            .then(service => setService(service));
+                                                                            .then(service => {
+                                                                                setService(service);
+                                                                                toast.warn("Você acabou de deletar este cupom!");
+                                                                            });
                                                                     }} />
                                                             ))
                                                             :
@@ -336,9 +336,12 @@ export function DashboardPage() {
                                                                                 createCoupon(header().substring(7), coupon)
                                                                                     .then(() => {
                                                                                         getServiceFromToken(header().substring(7))
-                                                                                            .then(service => setService(service));
+                                                                                            .then(service => {
+                                                                                                setService(service);
+                                                                                                toast.success("Seu novo cupom foi criado com êxito!");
+                                                                                            });
                                                                                     }).catch(() => {
-                                                                                        // chamar toast de erro
+                                                                                        toast.error("Não foi possível criar seu cupom!");
                                                                                     });
                                                                             }}
                                                                         >Criar produto</button>
@@ -374,6 +377,12 @@ export function DashboardPage() {
                 }
                 
             </div>
+            <ToastContainer
+                autoClose={5000}
+                position={"bottom-right"}
+                theme="light"
+                draggable={false}
+            />
             <Footer />
         </div>
     );
