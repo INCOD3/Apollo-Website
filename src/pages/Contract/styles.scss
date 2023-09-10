@@ -34,3 +34,14 @@
         }
     }
 }
+
+@media(max-width: 992px) {
+    .items {
+        display: flex!important;
+        flex-direction: column!important;
+        
+        .qrdata-clipboard {
+            margin-bottom: 1rem;
+        }
+    }
+}
