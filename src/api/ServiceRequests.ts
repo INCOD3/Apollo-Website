@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = "http://192.168.1.106:8080/dashboard/";
+const api = "http://192.168.1.150:8080/dashboard/";
 
 export interface ProductProps {
     id: number;
