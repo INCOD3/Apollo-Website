@@ -61,7 +61,7 @@ alta qualidade e automação de dar inveja.</p>
                         </li>
                     </ul>
                     <div className='mx-auto'>
-                        <button className='btn btn-primary'>Contratar</button>
+                        <Link to="/order/begginer" className='btn btn-primary'>Contratar</Link>
                     </div>
                 </div>
                 <div className="card border-0 p-5">
@@ -92,7 +92,7 @@ alta qualidade e automação de dar inveja.</p>
                         </li>
                     </ul>
                     <div className='mx-auto'>
-                        <button className='btn btn-primary'>Contratar</button>
+                        <Link to="/order/professional" className='btn btn-primary'>Contratar</Link>
                     </div>
                 </div>
             </div>
