@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginResponse, loginAccount } from '../../api/LoginRequest';
 import { useSignIn } from 'react-auth-kit';
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 export function LoginPage() {
     const [email, setEmail] = useState('');
@@ -29,10 +31,12 @@ export function LoginPage() {
     function handleLoginAccount() {
         if (!isValidEmail()) {
             setMessage("Este e-mail não é válido!");
+            toast.error("Este e-mail não é válido!");
             return;
         }
         if (!isValidPassword()) {
             setMessage("A senha não pode estar vazia!");
+            toast.error("A senha não pode estar vazia!");
             return;
         }
 
@@ -45,7 +49,8 @@ export function LoginPage() {
              });
              navigate('/dashboard');
         }).catch(() => {
-            setMessage("Email ou senha inválidos");
+            setMessage("E-mail ou senha inválidos");
+            toast.error("E-mail ou senha inválidos");
         })
     }
 
@@ -91,6 +96,7 @@ export function LoginPage() {
                             <button 
                             onClick={() => {
                                 handleLoginAccount();
+                                if (message) toast(message);
                             }}
                             className='btn btn-primary py-2 mb-2'>Entrar</button>
                             <div className='text-center fs-6 text-danger'>{message}</div>
@@ -101,6 +107,12 @@ export function LoginPage() {
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                autoClose={5000}
+                position={"bottom-right"}
+                theme="light"
+                draggable={false}
+            />
         </div>
     )
 }

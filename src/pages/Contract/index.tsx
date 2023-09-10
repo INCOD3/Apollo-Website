@@ -27,7 +27,7 @@ export function BegginerPage() {
             <Navbar/>
             <h1 className="text-center text-primary fw-bold fs-3 mt-5">VOCÊ ESTÁ ADQUIRINDO:</h1>
             <p className="text-center text-secondary fw-6">Caso já tenha efetuado o pagamento, <Link to="/dashboard">clique aqui</Link></p>
-                <div className="container d-flex flex-row justify-content-center mt-5 gap-5">
+                <div className="container d-flex flex-row justify-content-center mt-5 gap-5 items">
                     <div className="card border-0 p-5 rounded shadow shadow-lg">
                         <p className="fw-bold fs-5 text-secondary">Iniciante</p>
                         <div className="d-flex flex-row align-items-center">
@@ -66,14 +66,14 @@ export function BegginerPage() {
                                 className="card-img-top mx-auto mt-3"
                                 alt="" />
                                 <div className="text-secondary text-qr mt-5 ms-3">Código de Pagamento</div>
-                                <div className="border border-1 qrdata">
+                                <div className="border border-1 qrdata mx-auto">
                                     <span className="qrcode-extralarge-text">
                                         {order?.qrcode}
                                     </span>
                                 </div>
                                 <div className="align-items-center mx-auto mt-4">
                                     <button 
-                                    className="btn btn-primary"
+                                    className="btn btn-primary qrdata-clipboard"
                                     onClick={() => {
                                         navigator.clipboard.writeText(order.qrcode);
                                     }}
@@ -113,7 +113,7 @@ export function ProfessionalPage() {
             <Navbar/>
             <h1 className="text-center text-primary fw-bold fs-3 mt-5">VOCÊ ESTÁ ADQUIRINDO:</h1>
             <p className="text-center text-secondary fw-6">Caso já tenha efetuado o pagamento, <Link to="/dashboard">clique aqui</Link></p>
-                <div className="container d-flex flex-row justify-content-center mt-5 gap-5">
+                <div className="container d-flex flex-row justify-content-center mt-5 gap-5 items">
                     <div className="card border-0 p-5 rounded shadow shadow-lg">
                         <p className="fw-bold fs-5 text-primary">Profissional</p>
                         <div className="d-flex flex-row align-items-center">
