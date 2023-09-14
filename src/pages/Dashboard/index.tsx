@@ -4,7 +4,8 @@ import { CouponProps, createCoupon, createProduct, editServiceDetails, getServic
 
 import './styles.scss';
 
-import logo from "./atlassian.svg";
+// @ts-ignore
+import logo from "./Apollo-logo.png";
 
 import { FaDiscord } from "react-icons/fa";
 import { FormControl, Input, InputAdornment } from "@mui/material"
@@ -49,7 +50,7 @@ export function DashboardPage() {
                     service != undefined ?
                         (
                             <><aside className="d-flex flex-column border border-bottom-0 border-top-0 align-items-center">
-                                <img src={logo} alt="Logo da Apollo" className="w-50 mt-3 mx-5" />
+                                <img src={logo} alt="Logo da Apollo" className="service-img w-50 mt-3 mx-5 rounded-circle" />
                                 <p className="text-secondary text-center mt-5 fw-semibold">ID: {service?.id}</p>
                                 <FormControl>
                                     <Input

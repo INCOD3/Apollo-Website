@@ -3,6 +3,11 @@
     height: 9rem;
 }
 
+.service-img {
+    width: 215px!important;
+    height: 200px!important;
+}
+
 @media (max-width: 992px) {
     .content {
         display: flex;
@@ -12,7 +17,8 @@
         aside {
             width: 80%;
             img {
-                width: 5rem!important;
+                width: 85px!important;
+                height: 80px!important;
             }
         }
 
