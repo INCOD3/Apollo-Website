@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer/Footer";
 import { Navbar } from "../../components/navbar/Navbar";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
@@ -10,16 +10,22 @@ import "./styles.scss";
 import { useAuthHeader, useAuthUser } from "react-auth-kit";
 import { useEffect, useState } from "react";
 import { ServiceOrder, createOrder } from "../../api/OrderRequest";
+import { getServiceFromToken } from "../../api/ServiceRequests";
 
 export function BegginerPage() {
     const [order, setOrder] = useState<ServiceOrder>();
     const header = useAuthHeader();
     const auth = useAuthUser();
     const user = auth() as any;
+    const navigate = useNavigate();
 
     useEffect(() => {
-        createOrder(header().substring(7), user.email, "BEGGINER")
-        .then(setOrder)
+        getServiceFromToken(header().substring(7))
+            .then(() => navigate("/dashboard"))
+            .catch(() => {
+                createOrder(header().substring(7), user.email, "BEGGINER")
+                .then(setOrder)
+            });
     }, []);
 
     return(
@@ -102,10 +108,15 @@ export function ProfessionalPage() {
     const header = useAuthHeader();
     const auth = useAuthUser();
     const user = auth() as any;
+    const navigate = useNavigate();
 
     useEffect(() => {
-        createOrder(header().substring(7), user.email, "PROFESSIONAL")
-        .then(setOrder)
+        getServiceFromToken(header().substring(7))
+        .then(() => navigate("/dashboard"))
+        .catch(() => {
+            createOrder(header().substring(7), user.email, "PROFESSIONAL")
+            .then(setOrder);
+        })
     }, []);
 
     return(
