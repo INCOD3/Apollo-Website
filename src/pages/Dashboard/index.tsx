@@ -32,10 +32,10 @@ export function DashboardPage() {
 
     useEffect(() => {
         getServiceFromToken(header().substring(7)).then(service => {
-            setService((prevService) => {
+            setService(() => {
                 if (service.discordId) setDiscordId(service.discordId)
                 if (service.pix) setPix(service.pix)
-                return prevService = service;
+                return service;
             })
         }).catch(error => {
             console.log(error)
