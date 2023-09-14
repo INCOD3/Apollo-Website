@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = "http://api.apollodiscord.com:8080/login";
+const api = "https://api.apollodiscord.com:8080/login";
 
 export interface LoginResponse {
     data: {

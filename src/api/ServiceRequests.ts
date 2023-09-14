@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = "http://api.apollodiscord.com:8080/dashboard/";
+const api = "https://api.apollodiscord.com:8080/dashboard/";
 
 export interface ProductProps {
     id: number;
