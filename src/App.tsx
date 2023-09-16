@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom"
 
 import { LoginPage } from "./pages/Login"
 import { HomePage } from "./pages/Home"
@@ -13,7 +13,8 @@ function App() {
     <AuthProvider authName="_auth" authType="cookie" cookieDomain={window.location.hostname}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<Outlet/>}/>
+            <Route index element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage/>} />
             <Route path="/dashboard" element={
