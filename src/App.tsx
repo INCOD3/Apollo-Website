@@ -13,9 +13,9 @@ function App() {
     <AuthProvider authName="_auth" authType="cookie" cookieDomain={window.location.hostname}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" Component={HomePage} />
-            <Route path="/login" Component={LoginPage} />
-            <Route path="/register" Component={RegisterPage} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage/>} />
             <Route path="/dashboard" element={
               <RequireAuth loginPath="/login">
                 <DashboardPage />
