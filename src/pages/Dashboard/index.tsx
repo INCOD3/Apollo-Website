@@ -88,13 +88,13 @@ export function DashboardPage() {
                             </aside><div className="d-flex flex-column w-100">
                                     <div className="d-flex justify-content-around mt-5 w-100 data-cards">
                                         <div className="card border-0 shadow-lg align-items-center data align-items-center justify-content-center">
-                                            <h1 className="text-primary fs-1 fw-bold ">15</h1>
-                                            <h1 className="text-secondary fs-5 fw-bold mx-5">Total de vendas</h1>
+                                            <h1 className="text-primary fs-1 fw-bold ">{service.products?.length}</h1>
+                                            <h1 className="text-secondary fs-5 fw-bold mx-5">Total de Produtos</h1>
                                             <SellIcon className="text-primary fs-1" />
                                         </div>
                                         <div className="card border-0 shadow-lg data align-items-center justify-content-center">
-                                            <h1 className="text-primary fs-1 fw-bold mt-2">R$ 593,78</h1>
-                                            <h1 className="text-secondary fs-5 fw-bold mx-5">Total arrecadado</h1>
+                                            <h1 className="text-primary fs-1 fw-bold mt-2">{service.coupons?.length}</h1>
+                                            <h1 className="text-secondary fs-5 fw-bold mx-5">Total de Cupons</h1>
                                             <PaidIcon className="text-primary fs-1" />
                                         </div>
                                     </div>
@@ -334,6 +334,11 @@ export function DashboardPage() {
                                                                             className="btn btn-success"
                                                                             data-bs-dismiss="modal"
                                                                             onClick={() => {
+                                                                                if (coupon.expirateAt === "0" || coupon.percentage == 0) {
+                                                                                    toast.error("Não é possível criar este cupom!");
+                                                                                    return;
+                                                                                }
+
                                                                                 createCoupon(header().substring(7), coupon)
                                                                                     .then(() => {
                                                                                         getServiceFromToken(header().substring(7))
